@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:assis_tech/screens/Authcomponents/constants.dart';
 import 'package:assis_tech/screens/Authcomponents/action_button.dart';
 import 'package:assis_tech/modules/auth/auth_email.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/src/provider.dart';
 
 class LogIn extends StatefulWidget {
@@ -32,6 +33,7 @@ class _LogInState extends State<LogIn> {
   FocusNode _focusNodeLoja = FocusNode();
   FocusNode _focusNodeUsername = FocusNode();
   FocusNode _focusNodePassword = FocusNode();
+  Status _status = Status.Uninitialized;
   TextEditingController _email = TextEditingController();
   TextEditingController _password = TextEditingController();
 
@@ -44,7 +46,13 @@ class _LogInState extends State<LogIn> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
+    SnackBar snackbar = new SnackBar(
+      content: Text(
+        "E-mail ou Senha Inválidos!!",
+        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+      ),
+      backgroundColor: Colors.red[600],
+    );
     return Padding(
       padding: EdgeInsets.all(size.height > 770
           ? 64
@@ -147,14 +155,20 @@ class _LogInState extends State<LogIn> {
                           User user = await AuthFactory()
                               .authlogin(_email.text, _password.text);
                           token = user.token.toString();
-                          if (user.token != null) {
-                            // await AuthFactory().sobremim();
-                            Navigator.of(context).pushReplacement(
-                                MaterialPageRoute(
-                                    builder: (_) => DashBoardScreen()));
 
-                            //  await Navigator.push(
-                            // context, MaterialPageRoute(builder: (context) => ClientesList(pedido: widget.pedido));
+                          if (user.error == null) {
+                            _status = Status.Authenticated;
+                            // await AuthFactory().sobremim();
+                            Navigator.of(context)
+                                .pushReplacement(MaterialPageRoute(
+                                    builder: (_) => DashBoardScreen(
+                                          status: _status,
+                                        )));
+                          } else if (user.error != null) {
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(snackbar);
+                            print("não logou $_status");
+                            // await AuthFactory().sobremim();
 
                           }
 
@@ -217,3 +231,6 @@ class _LogInState extends State<LogIn> {
     );
   }
 }
+
+
+// }

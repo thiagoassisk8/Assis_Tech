@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'package:assis_tech/config.dart';
+import 'package:assis_tech/screens/Authcomponents/constants.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:assis_tech/config.dart';
 import 'dart:io';
@@ -19,12 +21,13 @@ class AuthFactory {
   static final _setPasswordURL = config.apiURL + "auth/reset_password";
   static final _requestPhoneURL = config.apiURL + "auth/phone";
   static final _validatePhoneURL = config.apiURL + "auth/validatePhone";
-
+  Status _status = Status.Uninitialized;
   Future<User> authlogin(String email, String password, {debug: false}) {
     Map dados = {
       "email": email,
       "password": password,
     };
+    _status = Status.Authenticating;
     return http.post(Uri.parse(_loginURL),
         body: jsonEncode(dados),
         headers: <String, String>{
@@ -35,6 +38,7 @@ class AuthFactory {
       print(dados.toString());
       print(Uri.parse(_loginURL));
       if (res == null) throw new Exception("empty response");
+
       // if (res["error"] != null) throw new Exception(res["error_msg"]);
       var result = json.decode(res.body);
       // print("result ${result["access_token"]}");

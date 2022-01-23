@@ -1,8 +1,10 @@
+import 'package:assis_tech/controllers/controller.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:assis_tech/screens/Authcomponents/constants.dart';
 import 'package:assis_tech/screens/Authcomponents/login.dart';
 import 'package:assis_tech/screens/Authcomponents/signup.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(MyAppAuth());
@@ -20,6 +22,14 @@ class MyAppAuth extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: HomePageAuth(),
+      // home: MultiProvider(
+      //   providers: [
+      //     ChangeNotifierProvider(
+      //       create: (context) => Controller(),
+      //     )
+      //   ],
+      //   child: HomePageAuth(),
+      // ),
     );
   }
 }

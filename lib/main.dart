@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:assis_tech/screens/AuthScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

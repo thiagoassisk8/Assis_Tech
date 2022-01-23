@@ -1,3 +1,5 @@
+import 'package:assis_tech/screens/Authcomponents/constants.dart';
+
 class User {
   final String? token;
   final String? id;
@@ -6,6 +8,7 @@ class User {
   final String? role;
   final String? created_at;
   final String? company_id;
+  final String? error;
 
   User(
       {this.token,
@@ -14,7 +17,8 @@ class User {
       this.name,
       this.role,
       this.created_at,
-      this.company_id});
+      this.company_id,
+      this.error});
 
   factory User.map(Map<String, dynamic> data) {
     print(data);
@@ -26,6 +30,7 @@ class User {
         name: data["name"],
         role: data["role"],
         created_at: data["created_at"],
-        company_id: data["company_id"]);
+        company_id: data["company_id"],
+        error: data["error"]);
   }
 }

@@ -34,11 +34,11 @@ class DashboardContent extends StatelessWidget {
                       flex: 5,
                       child: Column(
                         children: [
-                          AnalyticCards(),
-                          SizedBox(
-                            height: appPadding,
-                          ),
-                          Users(),
+                          // AnalyticCards(),
+                          // SizedBox(
+                          //   height: appPadding,
+                          // ),
+                          // Users(),
                           if (Responsive.isMobile(context))
                             SizedBox(
                               height: appPadding,
