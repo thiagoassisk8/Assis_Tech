@@ -1,3 +1,4 @@
+import 'package:assis_tech/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:assis_tech/screens/Authcomponents/constants.dart';
 
@@ -31,3 +32,16 @@ Widget actionButton(String text) {
     ),
   );
 }
+
+Widget LoginButton = FlatButton(
+  color: transparent,
+  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+  child: Text("Login", style: TextStyle(color: kPrimaryColor, fontSize: 20)),
+  height: 50,
+  autofocus: true,
+  onPressed: () {
+    print("ok");
+
+    // Navigator.of(context).pop();
+  },
+);

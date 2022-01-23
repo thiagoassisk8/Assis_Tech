@@ -18,16 +18,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:
-          // MultiProvider(
-          //   providers: [
-          //     ChangeNotifierProvider(
-          //       create: (context) => Controller(),
-          //     )
-          //   ],
-          // child:
-          MyAppAuth(),
-      // ),
+      home: MultiProvider(
+        providers: [
+          ChangeNotifierProvider(
+            create: (context) => Controller(),
+          )
+        ],
+        child: MyAppAuth(),
+      ),
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:assis_tech/models/user.dart';
 import 'package:flutter/material.dart';
 import 'package:assis_tech/constants/constants.dart';
 import 'package:assis_tech/constants/responsive.dart';
@@ -8,7 +9,8 @@ import 'components/drawer_menu.dart';
 import 'package:provider/provider.dart';
 
 class DashBoardScreen extends StatelessWidget {
-  const DashBoardScreen({Key? key}) : super(key: key);
+  final User? user;
+  const DashBoardScreen({Key? key, this.user}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -4,9 +4,9 @@ import 'package:assis_tech/screens/Authcomponents/constants.dart';
 import 'package:assis_tech/screens/Authcomponents/action_button.dart';
 
 class SignUp extends StatefulWidget {
-  final Function onLogInSelected;
+  final Function? onLogInSelected;
 
-  SignUp({required this.onLogInSelected});
+  SignUp({this.onLogInSelected});
 
   @override
   _SignUpState createState() => _SignUpState();
@@ -123,7 +123,8 @@ class _SignUpState extends State<SignUp> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              widget.onLogInSelected();
+                              print("aqui");
+                              widget.onLogInSelected!();
                             },
                             child: Row(
                               children: [
