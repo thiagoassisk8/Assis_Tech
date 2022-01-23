@@ -147,15 +147,16 @@ class _LogInState extends State<LogIn> {
                           User user = await AuthFactory()
                               .authlogin(_email.text, _password.text);
                           token = user.token.toString();
-                          // if (user.token != null) {
-                          // await AuthFactory().sobremim();
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (_) => DashBoardScreen()));
+                          if (user.token != null) {
+                            // await AuthFactory().sobremim();
+                            Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(
+                                    builder: (_) => DashBoardScreen()));
 
-                          //  await Navigator.push(
-                          // context, MaterialPageRoute(builder: (context) => ClientesList(pedido: widget.pedido));
+                            //  await Navigator.push(
+                            // context, MaterialPageRoute(builder: (context) => ClientesList(pedido: widget.pedido));
 
-                          // }
+                          }
 
                           // print(res["token"]);
                         },

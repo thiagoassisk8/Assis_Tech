@@ -79,10 +79,10 @@ class DashboardContent extends StatelessWidget {
                                 SizedBox(
                                   width: appPadding,
                                 ),
-                              Expanded(
-                                flex: 3,
-                                child: Viewers(),
-                              ),
+                              // Expanded(
+                              //   flex: 3,
+                              //   child: Viewers(),
+                              // ),
                             ],
                             crossAxisAlignment: CrossAxisAlignment.start,
                           ),
