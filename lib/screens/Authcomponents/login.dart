@@ -6,7 +6,7 @@ import 'package:assis_tech/controllers/controller.dart';
 import 'package:assis_tech/main.dart';
 
 import 'package:assis_tech/models/user.dart';
-import 'package:assis_tech/screens/dash_board_screen.dart';
+import 'package:assis_tech/screens/dashboard/dashboard.dart';
 
 import 'dart:core';
 import 'package:flutter/material.dart';
@@ -156,14 +156,25 @@ class _LogInState extends State<LogIn> {
                               .authlogin(_email.text, _password.text);
                           token = user.token.toString();
 
+                          print(user.id);
+
                           if (user.error == null) {
                             _status = Status.Authenticated;
                             // await AuthFactory().sobremim();
-                            Navigator.of(context)
-                                .pushReplacement(MaterialPageRoute(
-                                    builder: (_) => DashBoardScreen(
-                                          status: _status,
+                            // User userdata = await AuthFactory()
+                            //     .sobremim(user.token.toString());
+
+                            await Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => DashBoard(
+                                          user: user,
                                         )));
+                            // Navigator.of(context).pushNamed('/dashboard');
+                            // Navigator.of(context).push(MaterialPageRoute(
+                            // builder: (_) => DashBoardScreen(
+                            // status: _status,
+                            // )));
                           } else if (user.error != null) {
                             ScaffoldMessenger.of(context)
                                 .showSnackBar(snackbar);

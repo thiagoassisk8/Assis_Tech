@@ -22,6 +22,7 @@ class AuthFactory {
   static final _requestPhoneURL = config.apiURL + "auth/phone";
   static final _validatePhoneURL = config.apiURL + "auth/validatePhone";
   Status _status = Status.Uninitialized;
+
   Future<User> authlogin(String email, String password, {debug: false}) {
     Map dados = {
       "email": email,
@@ -47,7 +48,7 @@ class AuthFactory {
     });
   }
 
-  Future<User> sobremim() {
+  Future<User> sobremim(token) {
     return http.get(Uri.parse(api + "me"), headers: <String, String>{
       "content-type": "application/json; charset=UTF-8",
       'Authorization': "Bearer $token",

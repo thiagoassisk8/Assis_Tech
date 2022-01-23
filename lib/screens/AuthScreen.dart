@@ -1,4 +1,5 @@
 import 'package:assis_tech/controllers/controller.dart';
+import 'package:assis_tech/screens/dashboard/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:assis_tech/screens/Authcomponents/constants.dart';
@@ -6,33 +7,37 @@ import 'package:assis_tech/screens/Authcomponents/login.dart';
 import 'package:assis_tech/screens/Authcomponents/signup.dart';
 import 'package:provider/provider.dart';
 
-void main() {
-  runApp(MyAppAuth());
-}
+// void main() {
+//   runApp(MyAppAuth());
+// }
 
-class MyAppAuth extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Web',
-      theme: ThemeData(
-        primaryColor: kPrimaryColor,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        textTheme: GoogleFonts.secularOneTextTheme(),
-      ),
-      debugShowCheckedModeBanner: false,
-      home: HomePageAuth(),
-      // home: MultiProvider(
-      //   providers: [
-      //     ChangeNotifierProvider(
-      //       create: (context) => Controller(),
-      //     )
-      //   ],
-      //   child: HomePageAuth(),
-      // ),
-    );
-  }
-}
+// class Home extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Home',
+//       theme: ThemeData(
+//         primaryColor: kPrimaryColor,
+//         visualDensity: VisualDensity.adaptivePlatformDensity,
+//         textTheme: GoogleFonts.secularOneTextTheme(),
+//       ),
+//       debugShowCheckedModeBanner: false,
+//       // home: HomePageAuth(),
+//       routes: {
+//         '/login': (_) => HomePageAuth(),
+//         '/dashboard': (_) => DashBoard(),
+//       },
+//       home: MultiProvider(
+//         providers: [
+//           ChangeNotifierProvider(
+//             create: (context) => Controller(),
+//           )
+//         ],
+//         child: HomePageAuth(),
+//       ),
+//     );
+//   }
+// }
 
 class HomePageAuth extends StatefulWidget {
   @override
