@@ -25,7 +25,7 @@ class User {
 
     return new User(
         token: data["access_token"],
-        id: data["chave"],
+        id: data["id"].toString(),
         email: data["email"],
         name: data["name"],
         role: data["role"],

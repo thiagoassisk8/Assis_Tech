@@ -155,21 +155,26 @@ class _LogInState extends State<LogIn> {
                           User user = await AuthFactory()
                               .authlogin(_email.text, _password.text);
                           token = user.token.toString();
+                          // print("${user.token}");
+                          // print("${user.id}");
 
-                          print(user.id);
+                          // print("user ID :${user.id.toString()}");
 
                           if (user.error == null) {
                             _status = Status.Authenticated;
+
                             // await AuthFactory().sobremim();
                             // User userdata = await AuthFactory()
-                            //     .sobremim(user.token.toString());
+                            // .sobremim(user.token.toString());
+                            // var data =
+                            //     await AuthFactory().getdatafromid(token, "8");
+                            // print("data: ${data}");
 
                             await Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => DashBoard(
-                                          user: user,
-                                        )));
+                                  builder: (context) => DashBoard(id: user.id),
+                                ));
                             // Navigator.of(context).pushNamed('/dashboard');
                             // Navigator.of(context).push(MaterialPageRoute(
                             // builder: (_) => DashBoardScreen(
