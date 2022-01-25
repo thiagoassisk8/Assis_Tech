@@ -4,19 +4,13 @@ import 'package:assis_tech/modules/auth/auth_email.dart';
 import 'package:flutter/material.dart';
 
 class DashBoard extends StatelessWidget {
-  String? id;
-  DashBoard({
-    Key? key,
-    this.id,
-  }) : super(key: key);
+  Map? user;
+
+  DashBoard({Key? key, Map? this.user}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    if (id == null) {
+    if (user == null) {
       Navigator.of(context).pushNamed('/login');
-    }
-    Future<User> teste() async {
-      var data = await AuthFactory().getdatafromid(token, "8");
-      return data;
     }
 
     return Scaffold(
@@ -24,7 +18,8 @@ class DashBoard extends StatelessWidget {
         title: Text("DashBoard"),
       ),
       body: Container(
-          child: Text("dados do usuário logado ${teste()} ${id!} ${id!}")),
+          child:
+              Text("dados do usuário logado ${user!['name']},${user!['id']}")),
     );
   }
 }

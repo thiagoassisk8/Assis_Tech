@@ -1,4 +1,5 @@
 import 'package:assis_tech/controllers/controller.dart';
+import 'package:assis_tech/models/user.dart';
 import 'package:assis_tech/screens/dashboard/dashboard.dart';
 
 import 'package:flutter/material.dart';
@@ -25,6 +26,7 @@ class Home extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       // home: HomePageAuth(),
+
       routes: {
         '/login': (_) => HomePageAuth(),
         '/dashboard': (_) => DashBoard(),

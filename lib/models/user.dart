@@ -1,14 +1,14 @@
 import 'package:assis_tech/screens/Authcomponents/constants.dart';
 
 class User {
-  final String? token;
-  final String? id;
-  final String? email;
-  final String? name;
-  final String? role;
-  final String? created_at;
-  final String? company_id;
-  final String? error;
+  String? token;
+  String? id;
+  String? email;
+  String? name;
+  String? role;
+  String? created_at;
+  String? company_id;
+  String? error;
 
   User(
       {this.token,

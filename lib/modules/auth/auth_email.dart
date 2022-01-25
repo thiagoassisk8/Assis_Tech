@@ -41,16 +41,18 @@ class AuthFactory {
     });
   }
 
-  Future<User> getdatafromid(token, id) {
+  Future<Map> getdatafromid(id) {
     return http.get(Uri.parse(api + "user/" + id), headers: <String, String>{
       "content-type": "application/json; charset=UTF-8",
       'Authorization': "Bearer $token",
     }).then((dynamic res) {
       // if (res["error"] != null) throw new Exception(res["error_msg"]);
-      var result = json.decode(res.body);
-      print(result);
+      Map result = json.decode(res.body);
+      // print(result);
       // print("result ${result["access_token"]}");
+      // print(result["id"]);
       return result;
+      // return User.map(json.decode(res.body));
       // return res;
     });
   }

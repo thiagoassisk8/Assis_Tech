@@ -18,8 +18,9 @@ import 'package:provider/src/provider.dart';
 
 class LogIn extends StatefulWidget {
   final Function? onSignUpSelected;
+  final User? Miguel;
 
-  LogIn({this.onSignUpSelected});
+  LogIn({this.onSignUpSelected, this.Miguel});
 
   @override
   _LogInState createState() => _LogInState();
@@ -162,19 +163,17 @@ class _LogInState extends State<LogIn> {
 
                           if (user.error == null) {
                             _status = Status.Authenticated;
-
-                            // await AuthFactory().sobremim();
-                            // User userdata = await AuthFactory()
-                            // .sobremim(user.token.toString());
-                            // var data =
-                            //     await AuthFactory().getdatafromid(token, "8");
-                            // print("data: ${data}");
+                            Map newuser =
+                                await AuthFactory().getdatafromid(user.id);
+                            print(" newuser ${newuser}");
 
                             await Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => DashBoard(id: user.id),
+                                  builder: (context) =>
+                                      DashBoard(user: newuser),
                                 ));
+
                             // Navigator.of(context).pushNamed('/dashboard');
                             // Navigator.of(context).push(MaterialPageRoute(
                             // builder: (_) => DashBoardScreen(
